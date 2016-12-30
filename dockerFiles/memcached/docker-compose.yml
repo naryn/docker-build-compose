@@ -1,0 +1,10 @@
+
+mc.service:
+  image: mamcached:alpine
+  expose:
+    - 11211
+  ports:
+    - 11211:11211
+  #links:
+   # - mc1:mc
+  command: memcached -m 64

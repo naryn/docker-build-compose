@@ -1,0 +1,14 @@
+ng.service:
+  image: services/nginx:1.10
+  volumes:
+  #- /docker/services/etc/nginx/nginx.conf:/etc/nginx/nginx.conf
+  - /docker/services/log/nginx/:/var/log/nginx
+  - /docker/services/certs/nginx/:/etc/nginx/certs
+  - /docker/services/project/nginx/:/usr/share/nginx/html
+  ports:
+  - "80:80"
+  environment:
+  - NGINX_HOST=docker.4399.cn
+  - NGINX_PORT=80
+
+  ## external_links

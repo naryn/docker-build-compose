@@ -1,0 +1,23 @@
+php.service:
+  image: nan:5.6
+  #image: php:5.6-apache
+  volumes:
+    - /docker/services/project/php/:/var/www/html
+    #- /docker/services/etc/php/php.ini:/usr/local/etc/php/php.ini
+    - /docker/services/log/apache/:/var/log/apache2
+    #- /docker/services/etc/apache/httpd.conf:/etc/apache2/httpd.conf
+  #expose:
+  #  - 80
+  ports:
+    - 8881:80
+  #copy: /docker/services/etc/apache/httpd.conf /etc/apache2/
+  #copy: /docker/services/etc/apache/httpd-*.conf /etc/apache2/
+  ##links:
+    #- mysql:mysql
+    #- redis:redis
+    #- memcached:memcached
+
+#docker run -d -p 8680:80 --name my-apache-php-app -v /docker/services/project/php/:/var/www/html -v /docker/services/etc/php/php.ini:/usr/local/etc/php/php.ini php:7.1.0-apache -d -it /bin/bash
+
+
+

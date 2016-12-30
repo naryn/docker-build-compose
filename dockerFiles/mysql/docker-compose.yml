@@ -1,0 +1,17 @@
+db.service:
+  image: services/mysql:8.0
+  volumes:
+    - /docker/services/etc/mysql/:/etc/mysql/conf.d ##.cnf
+    - /docker/services/data/mysql/:/var/lib/mysql
+  expose:
+    - 3306
+  ports:
+    - 3306:3306
+  #links:
+    #- mysql:mysql
+  #command:
+  environment:
+  - MYSQL_ROOT_PASSWORD=123456
+
+#docker run -p 3316:3306 -v /docker/services/etc/mysql:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 -it mysql -d
+
